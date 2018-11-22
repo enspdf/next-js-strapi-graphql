@@ -24,7 +24,6 @@ const RestaurantList = (
     const searchQuery = restaurants.filter(query =>
       query.name.toLowerCase().includes(search)
     );
-
     if (searchQuery.length != 0) {
       return (
         <div>
@@ -76,9 +75,10 @@ const RestaurantList = (
         </div>
       );
     } else {
-      return <h1>No Restaurants Fount</h1>;
+      return <h1>No Restaurants Found</h1>;
     }
   }
+  return <h1>Loading</h1>;
 };
 
 const query = gql`
@@ -101,5 +101,7 @@ RestaurantList.getInitialProps = async ({ req }) => {
 };
 
 export default graphql(query, {
-  props: ({ data }) => ({ data })
+  props: ({ data }) => ({
+    data
+  })
 })(RestaurantList);

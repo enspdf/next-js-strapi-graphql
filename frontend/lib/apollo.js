@@ -7,8 +7,7 @@ import {
 
 const config = {
     link: new HttpLink({
-        uri: "http://localhost:1337/graphql"
+        uri: "http://localhost:1337/graphql",
     })
 };
-
 export default withData(config);
